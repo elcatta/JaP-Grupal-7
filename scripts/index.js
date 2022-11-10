@@ -133,10 +133,12 @@ function tieneAlgo(input, boton) {
 
 inputName.addEventListener("input", () => {
     tieneAlgo(inputName, document.getElementById("btnPost"))
+    tieneAlgo(inputLastname, document.getElementById("btnPost"))
 })
 
 inputLastname.addEventListener("input", () => {
     tieneAlgo(inputLastname, document.getElementById("btnPost"))
+    tieneAlgo(inputName, document.getElementById("btnPost"))
 })
 
 inputDelete.addEventListener("input", () => {
