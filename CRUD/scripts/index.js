@@ -109,3 +109,31 @@ async function userSearch() {
         </li>`;
     }
 }
+let inputNombre = document.getElementById("inputPostNombre");
+let inputApellido = document.getElementById("inputPostApellido");
+let inputDelete = document.getElementById("inputDelete");
+let inputPutId = document.getElementById("inputPutId")
+function tieneAlgo(input, boton){
+    if (input.value != "") {
+        boton.classList.remove("disabled")
+    } else{
+       boton.classList.add("disabled")
+    }
+}
+
+
+inputNombre.addEventListener("input",()=>{
+    tieneAlgo(inputNombre, document.getElementById("btnPost"))
+})
+
+inputApellido.addEventListener("input",()=>{
+    tieneAlgo(inputApellido, document.getElementById("btnPost"))
+})
+
+inputDelete.addEventListener("input",()=>{
+    tieneAlgo(inputDelete, document.getElementById("btnDelete"))
+})
+
+inputPutId.addEventListener("input",()=>{
+    tieneAlgo(inputPutId, document.getElementById("btnPut"))
+})
