@@ -53,8 +53,8 @@ async function modifyUser() {
     await fetch(USERS_API + "/" + id, {
         method: 'PUT',
         body: JSON.stringify({
-            name: inputName.value,
-            lastname: inputLastname.value
+            name: document.getElementById("inputPutNombre").value,
+            lastname: document.getElementById("inputPutApellido").value
         }),
         headers: {
             "Content-Type": "application/json",
@@ -121,8 +121,7 @@ async function userSearch() {
     document.getElementById("inputGet1Id").value = "";
 }
 
-function tieneAlgo(input, boton) {
-    console.log("eaaaa");
+function fieldValidation(input, boton) {
     if (input.value != "") {
         boton.classList.remove("disabled")
     } else {
@@ -132,21 +131,21 @@ function tieneAlgo(input, boton) {
 
 
 inputName.addEventListener("input", () => {
-    tieneAlgo(inputName, document.getElementById("btnPost"))
-    tieneAlgo(inputLastname, document.getElementById("btnPost"))
+    fieldValidation(inputName, document.getElementById("btnPost"))
+    fieldValidation(inputLastname, document.getElementById("btnPost"))
 })
 
 inputLastname.addEventListener("input", () => {
-    tieneAlgo(inputLastname, document.getElementById("btnPost"))
-    tieneAlgo(inputName, document.getElementById("btnPost"))
+    fieldValidation(inputLastname, document.getElementById("btnPost"))
+    fieldValidation(inputName, document.getElementById("btnPost"))
 })
 
 inputDelete.addEventListener("input", () => {
-    tieneAlgo(inputDelete, document.getElementById("btnDelete"))
+    fieldValidation(inputDelete, document.getElementById("btnDelete"))
 })
 
 inputPutId.addEventListener("input", () => {
-    tieneAlgo(inputPutId, document.getElementById("btnPut"))
+    fieldValidation(inputPutId, document.getElementById("btnPut"))
 })
 
 
