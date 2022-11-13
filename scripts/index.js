@@ -34,6 +34,8 @@ async function createUser() {
 // MODIFY USER INFO
 
 async function getCurrentUser() {
+    document.getElementById("inputPutNombre").value = ""
+    document.getElementById("inputPutApellido").value = ""
     let id = document.getElementById("inputPutId").value;
     const user = await fetch(USERS_API + "/" + id).then((response) => {
         if (response.ok) {
@@ -45,7 +47,7 @@ async function getCurrentUser() {
     })
 
     document.getElementById("inputPutNombre").value = user.name
-    document.getElementById("inputPutApellido").value = user.lastname   
+    document.getElementById("inputPutApellido").value = user.lastname
 }
 
 async function modifyUser() {
@@ -63,7 +65,7 @@ async function modifyUser() {
         if (response.ok) {
             return response.json();
         } else {
-        alert('Error de solicitud')
+            alert('Error de solicitud')
         }
     })
     userSearch()
@@ -79,7 +81,7 @@ async function deleteUser() {
         if (response.ok) {
             return response.json();
         } else {
-        alert('Error de solicitud')
+            alert('Error de solicitud')
         }
     })
     userSearch()
@@ -94,11 +96,11 @@ async function userSearch() {
     const users = await fetch(USERS_API + "/" + id).then((response) => {
         if (response.ok) {
             return response.json();
-        }  else {
+        } else {
             alert('Error de solicitud')
         }
     });
-    
+
     if (id == "") {
         for (let i = 0; i < users.length; i++) {
             let user = users[i];
